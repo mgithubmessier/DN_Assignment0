@@ -1,10 +1,11 @@
 #include <Item.h>
+#include <Node.h>
 class List // Keeps track of the items whose keys end up at the same table position
 {
   List();       // constructor
   ~List();      // destructor;
-  private: Node *current; // current node in list of Nodes
-  int current;  // current location (-1 if empty or invalid location)
+  private: Node *nCurrent; // current node in list of Nodes
+  int iCurrent;  // current location (-1 if empty or invalid location)
   void first(); // reset list position to first item
   void last();  // reset list position to last item
   void makecurrent(int position); // reset list position to position

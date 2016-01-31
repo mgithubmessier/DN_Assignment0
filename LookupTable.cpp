@@ -2,7 +2,23 @@
 #include <List.cpp>
 
 LookupTable::LookupTable() {
-  List stackTable [10];
-  table = stackTable;
-  
+
+}
+LookupTable::~LookupTable() {
+}
+Item retrieve(string key) {
+}
+bool insert(string key, Item value) {
+}
+bool remove(string key) {
+}
+int numberUnused() {
+}
+int numberUsed() {
+}
+int minimumCollisions() {
+}
+int maximumCollisions() {
+}
+void display() {
 }
