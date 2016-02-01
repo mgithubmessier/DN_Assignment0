@@ -1,12 +1,13 @@
 #include <LookupTable.h>
-#include <List.cpp>
 
 LookupTable::LookupTable() {
-
+  List tempTable [10];
+  this -> table = tempTable;
 }
 LookupTable::~LookupTable() {
 }
 Item retrieve(string key) {
+  
 }
 bool insert(string key, Item value) {
 }

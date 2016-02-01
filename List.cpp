@@ -10,7 +10,7 @@ List::~List() {
   Node * nextNode;
   for(int i = 0; i < count - 1; i++) {
     nextNode = this -> nCurrent -> next;
-    delete this -> nCurrent;
+    delete (this -> nCurrent);
     this -> nCurrent = nextNode;
   }
 }
@@ -86,4 +86,6 @@ void List::replace(Item item) {
 bool List::empty() {
   return (count <= 0);
 }
-
+int main(void) {
+  return 0;
+}
