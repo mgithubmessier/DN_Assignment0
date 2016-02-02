@@ -77,7 +77,13 @@ void List::remove() {
   this -> nCurrent -> previous -> next = this -> nCurrent -> next;
   //set the next node's previous position to the current node's previous position;
   this -> nCurrent -> next -> previous = this -> nCurrent -> previous;
-  delete nCurrent;
+  //set the current node equal to its next node
+  this -> nCurrent = this -> nCurrent -> next;
+  Node * iterator = this -> nCurrent;
+  while(iterator -> next -> position != -1) {
+    iterator -> position--;
+    iterator = iterator -> next;
+  }
   count--;
 }
 void List::replace(Item item) {
