@@ -48,6 +48,18 @@ Item List::examine() {
 void List::insertBefore(Item item) {
   Node * prevNode = this -> nCurrent -> previous;
   Node * newNode;
+  bool alreadyExists = false;
+  Node holdingCurrent = *(this -> nCurrent);
+  //check if it already exists
+  first();
+  for(int i = 0; i < count; i++) {
+    if(this -> nCurrent -> item.vowels == item.vowels) {
+      this -> nCurrent -> item.count++;
+      return;      
+    }
+    next();
+  }
+  if(!alreadyExists) {
   newNode -> position = this -> iCurrent;
   newNode -> next = this -> nCurrent;
   newNode -> item = item;
@@ -58,6 +70,8 @@ void List::insertBefore(Item item) {
   this -> nCurrent -> previous = newNode;  
   this -> nCurrent -> position = this -> iCurrent+1;
   count++;
+  }
+
 }
 void List::insertAfter(Item item) {
   Node * nextNode = this -> nCurrent -> next;
