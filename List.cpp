@@ -84,8 +84,6 @@ void List::replace(Item item) {
   this -> nCurrent -> item = item;
 }
 bool List::empty() {
-  return (count <= 0);
+  return (count == 0);
 }
-int main(void) {
-  return 0;
-}
+
