@@ -1,5 +1,6 @@
 #include <List.h>
-
+#include <iostream>
+using namespace std;
 List::List() {
   iCurrent = -1;
   count = 0;
@@ -15,27 +16,34 @@ List::~List() {
   }
 }
 void List::first() {
+  //iterate backward to the first element
   for(int i = this -> iCurrent; i > 1; i--) {
     this -> nCurrent = this -> nCurrent -> previous;
   }
   this -> iCurrent = 0;
 }
 void List::last() {
+  //iterate forward to the last element
   for(int i = this -> iCurrent; i < count - 1; i++) {
     this -> nCurrent = this -> nCurrent -> next;
   }
   this -> iCurrent = count - 1;
 }
+//have yet to realize a use for this function
 void List::makecurrent(int position) {
   this -> iCurrent = position;
 }
 void List::prev() {
+  //move back to the previous item
+  //not cyclical, stop the iterator if at beginning of the linked list
   if(this -> iCurrent > 0) {
     this -> iCurrent--;
     this -> nCurrent = this -> nCurrent -> previous;
   }
 }
 void List::next() {
+  //move forward to the next item
+  //not cyclical, stop the iterator if at the end of the linked list
   if(this -> iCurrent < count - 1) {
     this -> iCurrent++;
     this -> nCurrent = this -> nCurrent -> next;
@@ -48,7 +56,6 @@ Item List::examine() {
 void List::insertBefore(Item item) {
   Node * prevNode = this -> nCurrent -> previous;
   Node * newNode;
-  bool alreadyExists = false;
   Node holdingCurrent = *(this -> nCurrent);
   //check if it already exists
   first();
@@ -59,7 +66,6 @@ void List::insertBefore(Item item) {
     }
     next();
   }
-  if(!alreadyExists) {
   newNode -> position = this -> iCurrent;
   newNode -> next = this -> nCurrent;
   newNode -> item = item;
@@ -70,8 +76,6 @@ void List::insertBefore(Item item) {
   this -> nCurrent -> previous = newNode;  
   this -> nCurrent -> position = this -> iCurrent+1;
   count++;
-  }
-
 }
 void List::insertAfter(Item item) {
   Node * nextNode = this -> nCurrent -> next;

@@ -3,7 +3,7 @@
 using namespace std;
 class LookupTable
 {
-  List *table;   // maximum of 10 slots
+ public:  List *table;   // maximum of 10 slots
   
   LookupTable(); // constructor
   ~LookupTable(); // destructor

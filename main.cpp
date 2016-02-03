@@ -25,33 +25,31 @@ Item createItem(string itemKey) {
 }
 void test()
 {
-  /*
   LookupTable table;
    
-  table.insert(“when”, createItem(“when”));       table.display();
-  table.insert(“can”, createItem(“can”));         table.display();
-  table.insert(“sailing”, createItem(“sailing”)); table.display();
-  table.insert(“weather”, createItem(“weather”)); table.display();
-  table.insert(“weather”, createItem(“weather”)); table.display();
+  table.insert("when", createItem("when"));        table.display();
+  table.insert("can", createItem("can"));          table.display();
+  table.insert("sailing", createItem("sailing"));  table.display();
+  table.insert("weather", createItem("weather"));  table.display();
 
-  Item i = table.retrieve(“when”);
-  cout << “count for when is: “ << i.count << endl; // should be 1
+  Item i = table.retrieve("when");
+  cout << "count for when is: " << i.count << endl; // should be 1
 
-  i = table.retrieve(“weather”);
-  cout << “count for weather is: “ << i.count << endl; // should be 2
+  i = table.retrieve("weather");
+  cout << "count for weather is: " << i.count << endl; // should be 2
 
-  table.remove(“when”);
-  table.remove(“weather”);
+  table.remove("when");
+  table.remove("weather");
 
-  i = table.retrieve(“weather”);
-  cout << “count for weather is: “ << i.count << endl; // should  be 1
+  i = table.retrieve("weather");
+  cout << "count for weather is: " << i.count << endl; // should  be 1
 
   table.display();
-  */
 }
 
 int main()
 {
+  test();
   /*
   LookupTable table;
    
@@ -59,7 +57,7 @@ int main()
 
   table.display();
 
-  Item i - table.retrieve(“when”);
+  Item i = table.retrieve(“when”);
   cout << “count for when is: “ << i.count << endl; // should be 1
 
   i = table.retrieve(“weather”);

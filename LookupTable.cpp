@@ -45,16 +45,18 @@ bool LookupTable::insert(string key, Item value) {
   //insert the item at a row according to its number of consonants
   List currentList = this -> table[value.consonants%10];
   //start from the top
+  cout << "The current number of items"<< currentList.count << endl;
   currentList.first();
   //insert it before an item with a larger number of vowels, or after the last item in the list
-  for(int i = 0; i < currentList.count; i++) {
-    if(currentLIst -> nCurrent -> item.vowels > value.vowels) {
-      currentList.insertBefore(value);
-      return;
+  if(value.vowels < currentList.count) {
+    for(int i = 0; i < value.vowels; i++) {
+      currentList.next();
     }
-    currentList.next();
+    currentList.insertBefore(value);
+    return true;
   }
   currentList.insertAfter(value);
+  return true;
 }
 bool LookupTable::remove(string key) {
   int numVowels = 0, numConsonants = 0;
@@ -80,7 +82,7 @@ bool LookupTable::remove(string key) {
   for(int i = 0; i < currentList.count; i++) {
     if(currentList.examine().vowels == numVowels) {
       currentList.remove();
-      count--;
+      currentList.count--;
       return true;
     }
     currentList.next();

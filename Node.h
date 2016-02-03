@@ -1,7 +1,7 @@
 #include <Item.h>
 struct Node
 {
-  Node * next;
+public: Node * next;
   Node * previous;
   int position;
   Item item;
