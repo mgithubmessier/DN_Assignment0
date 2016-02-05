@@ -1,4 +1,5 @@
 #include <Node.h>
+
 class List // Keeps track of the items whose keys end up at the same table position
 {
  public: List();       // constructor
@@ -9,7 +10,8 @@ class List // Keeps track of the items whose keys end up at the same table posit
   void makecurrent(int position); // reset list position to position
   void prev();  // reset list position to previous item
   void next();  // reset list position to next item
-  Item examine(); // get item at current location
+  Item examineItem(); // get item at current location
+  string examineKey();
   int count; // return number of items in list
   void insertBefore(Item item); // insert item before current position
   void insertAfter(Item item); // insert item after current position
