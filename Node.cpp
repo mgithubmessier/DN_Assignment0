@@ -6,7 +6,6 @@ Node::Node() {
   position = -1;
 }
 Node::~Node() {
-  //delete this -> next;
-  //delete this -> previous;
+  cout << "~Node():deleting: " << item.key << endl;
 }
 

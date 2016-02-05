@@ -2,9 +2,11 @@
 #include <iostream>
 using namespace std;
 LookupTable::LookupTable() {
-  this -> table = new List[10];
+  table = new List[10];
 }
 LookupTable::~LookupTable() {
+  delete [] table;
+  table = NULL;
 }
 Item LookupTable::retrieve(string key) {
   int numConsonants = 0;

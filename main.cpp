@@ -54,8 +54,7 @@ void test()
 int main()
 {
   //test();
-  LookupTable table;
-   
+  LookupTable table; 
   // READ IN THE LIST OF KEYS HERE…
   ifstream inputFile;
   inputFile.open("input.txt");
@@ -65,6 +64,7 @@ int main()
     remove(line.begin(),line.end(),' ');
     table.insert(line,createItem(line));
   }
+  inputFile.close();
   table.display();
 
   Item i = table.retrieve("when");
@@ -78,6 +78,5 @@ int main()
 
   i = table.retrieve("weather");
   cout << "count for weather is: " << i.count << endl; // should  be 1
-
   table.display();
 }

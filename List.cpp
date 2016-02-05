@@ -10,17 +10,25 @@ List::List() {
 List::~List() {
   first();
   Node * nextNode;
-  for(int i = 0; i < count - 1; i++) {
+  //a list always is instansiated with at least one allocated Node
+  if(count == 0 || count == 1) {
+    delete nCurrent;
+    return;
+  }
+  //cover the rest of the list if it has more than one in it
+  for(int i = 0; i < count; i++) {
     nextNode = nCurrent -> next;
     delete ( nCurrent);
     nCurrent = nextNode;
   }
+  nCurrent = NULL;
 }
 void List::first() {
   //iterate backward to the first element
-  //cout << "List:first(): iCurrent: " << iCurrent << endl;
+  //cout << "List:first(): currentKey: " << iCurrent << ": " << examineKey() << endl; 
   for(int i = iCurrent; i > 0; i--) {
     prev();
+    //cout << "List:first(): currentKey: " << iCurrent << ": " << examineKey() << endl; 
   }
 }
 void List::last() {
@@ -141,6 +149,7 @@ void List::insertAfter(Item item) {
   cout << "List:insertAfter(): list size: " << count << endl;
 }
 void List::remove() {
+  Node * toDelete = nCurrent;
   //set the previous node's next position to the current node's next position
   //it cannot have a previous if it is at position 0 though
   if(iCurrent > 0)
@@ -151,15 +160,22 @@ void List::remove() {
     nCurrent -> next -> previous = nCurrent -> previous;
     //set the current node equal to its next node
     nCurrent = nCurrent -> next;
+  } else {
+    delete nCurrent;
+    count--;
+    iCurrent--;
+    return;
   }
   //reduce all following positions by 1
-  Node * iterator = nCurrent;
+  Node * iterator = toDelete;
+
   count--;
   for(int i = iCurrent; i < count; i++) {
     iterator -> position--;
     iterator = iterator -> next;
   }
   first();
+  delete toDelete;
 }
 void List::replace(Item item) {
   nCurrent -> item = item;
