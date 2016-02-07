@@ -12,16 +12,27 @@ List::~List() {
   Node * nextNode;
   //a list always is instansiated with at least one allocated Node
   if(count == 0 || count == 1) {
+    if(count == 0)
+      cout << "deleting the element of an empty list: " << endl;
+    else 
+      cout << "deleting the only element of a list: " << iCurrent << ": "<< examineKey() <<  endl;
+    // this line makes equalizes the difference between a list that has been deleted empty, and a list that never received an element in the first place
+    //a list with no element in the first place still needs the allocated space deleted, where a list deleted empty has nothing to delete
+    nCurrent = new Node();
     delete nCurrent;
+    count = 0;
     return;
   }
+  cout << "deleting a list of size greater than 1" << endl;
   //cover the rest of the list if it has more than one in it
   for(int i = 0; i < count; i++) {
-    nextNode = nCurrent -> next;
-    delete ( nCurrent);
+    //make sure we do not access a null  node at the end of the list
+    nextNode = nCurrent -> next; 
+    delete nCurrent;
+    
     nCurrent = nextNode;
   }
-  nCurrent = NULL;
+  delete nextNode;
 }
 void List::first() {
   //iterate backward to the first element
@@ -44,7 +55,7 @@ void List::makecurrent(int position) {
 void List::prev() {
   //move back to the previous item
   //not cyclical, stop the iterator if at beginning of the linked list
-  if(iCurrent > 0) {
+  if(iCurrent > -1) {
     iCurrent--;
     nCurrent = nCurrent -> previous;
   }

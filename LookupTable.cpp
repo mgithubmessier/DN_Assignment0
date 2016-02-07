@@ -6,7 +6,6 @@ LookupTable::LookupTable() {
 }
 LookupTable::~LookupTable() {
   delete [] table;
-  table = NULL;
 }
 Item LookupTable::retrieve(string key) {
   int numConsonants = 0;
@@ -129,7 +128,7 @@ int LookupTable::maximumCollisions() {
 
 }
 void LookupTable::display() {
-  List currentList;
+  List currentList = table[0];
   for(int listIterator = 0; listIterator < 10; listIterator++) {
     currentList = table[listIterator];
     currentList.first();
